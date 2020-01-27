@@ -1,0 +1,21 @@
+{
+  "name": "action-transform-json",
+  "version": "0.1.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "preversion": "npm run-script build && git add dist && git commit -m 'build distributable'",
+    "postversion": "git push --tags && git push",
+    "build": "ncc build index.js -o dist",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@actions/core": "^1.2.1",
+    "@actions/exec": "^1.0.3",
+    "tmp": "^0.1.0"
+  },
+  "devDependencies": {
+    "@zeit/ncc": "^0.21.0",
+    "jest": "^25.1.0"
+  }
+}

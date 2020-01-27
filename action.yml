@@ -1,0 +1,24 @@
+name: Transorm JSON File
+author: Chris Martin <chris.martin@oforce.com>
+description: Transforms a JSON file with a jq expression.
+
+branding:
+  icon: cloud
+  color: orange
+
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
+
+inputs:
+  json-file:
+    description: The JSON file to transform.
+    required: true
+
+  expression:
+    description: The jq expression.
+    required: true
+
+outputs:
+  file:
+    description: The path to the transformed JSON file.
