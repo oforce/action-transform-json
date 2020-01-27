@@ -22,7 +22,7 @@ describe('tranform json', () => {
       .fn()
       .mockReturnValueOnce(jsonFile)
       .mockReturnValueOnce(
-        '.name = "chris" | .props.one = 1 | .props.two.three = 3'
+        '.name = "chris" | .props.one = 1 | .props.two.three = 3 | .defs[0].memory = 512'
       );
 
     await run();
@@ -39,7 +39,7 @@ describe('tranform json', () => {
     expect(core.setFailed).toHaveBeenNthCalledWith(
       1,
       `Command failed: /usr/local/bin/jq '.name.doesntexist += {}' /Users/martin/code/oforce/action-transform-json/__tests__/input.json
-jq: error (at /Users/martin/code/oforce/action-transform-json/__tests__/input.json:9): Cannot index string with string \"doesntexist\"
+jq: error (at /Users/martin/code/oforce/action-transform-json/__tests__/input.json:14): Cannot index string with string \"doesntexist\"
 `
     );
   });
