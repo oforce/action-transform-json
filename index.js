@@ -29,8 +29,7 @@ async function transform(json, expression) {
     discardDescriptor: true
   });
 
-  const content = JSON.stringify(stdout, null, 2);
-  fs.writeFileSync(file.name, content);
+  fs.writeFileSync(file.name, stdout);
   return file.name;
 }
 
